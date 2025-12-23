@@ -2,42 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background-rgb: 255, 255, 255;
-  --foreground-rgb: 15, 23, 42; /* slate-900 */
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
-  transition: background-color 0.3s ease, background-image 0.3s ease;
-  background-color: #0b1224;
-  /* Single, topic-aligned background applied globally */
-  background-image:
-    linear-gradient(180deg, rgba(248, 250, 252, 0.94), rgba(241, 245, 249, 0.92)),
-    url("/images/devspark-bg.svg");
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  transition: background-color 0.5s ease, background-image 0.5s ease, color 0.3s ease;
+  /* 🌞 LIGHT THEME BASE */
+  background:
+    radial-gradient(circle at top left, rgba(59, 130, 246, 0.18), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(236, 72, 153, 0.18), transparent 55%),
+    linear-gradient(145deg, #f9fafb 0%, #e5edff 45%, #fdf2ff 100%);
+  color: #020617;
 }
 
-/* Subtle dot pattern */
+/* Cinematic animated layers over the base background */
 body::before {
   content: '';
+  pointer-events: none;
   position: fixed;
-  inset: 0;
-  background-image: 
-    radial-gradient(circle at 25px 25px, rgba(0, 0, 0, 0.03) 2%, transparent 0%), 
-    radial-gradient(circle at 75px 75px, rgba(0, 0, 0, 0.03) 2%, transparent 0%);
-  background-size: 100px 100px;
-  opacity: 0.4;
+  inset: -10%;
   z-index: -1;
+  /* Subtle moving grain + gradients */
+  background:
+    radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.10), transparent 55%),
+    radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.12), transparent 55%),
+    url("/images/devspark-bg.svg");
+  background-size: 140% 140%, 140% 140%, cover;
+  background-position: 0% 0%, 100% 100%, center;
+  mix-blend-mode: soft-light;
+  animation: devspark-orbit 24s ease-in-out infinite alternate;
+  filter: saturate(1.05);
 }
 
-/* Gradient overlay helper */
+/* Extra soft glow layer */
+body::after {
+  content: '';
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(59, 130, 246, 0.25), transparent 60%),
+    radial-gradient(circle at 90% 100%, rgba(236, 72, 153, 0.25), transparent 60%);
+  opacity: 0.8;
+  filter: blur(40px);
+}
+
+/* Gradient overlay helper for sections */
 .bg-gradient-overlay {
   position: relative;
 }
@@ -64,34 +75,62 @@ body::before {
   @apply shadow-lg -translate-y-1;
 }
 
-/* 🌙 DARK MODE */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background-rgb: 2, 6, 23; /* slate-950 */
-    --foreground-rgb: 241, 245, 249; /* slate-100 */
-  }
+/* 🌙 DARK THEME (driven by `next-themes` class on <html>) */
+html.dark body {
+  background:
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.30), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(129, 140, 248, 0.35), transparent 55%),
+    radial-gradient(circle at 50% 120%, rgba(15, 23, 42, 0.9), #020617 70%);
+  color: #e5e7eb;
+}
 
-  body {
-    background-color: #020617;
-    background-image:
-      linear-gradient(180deg, rgba(2, 6, 23, 0.94), rgba(15, 23, 42, 0.94)),
-      url("/images/devspark-bg.svg");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-  }
+html.dark body::before {
+  background:
+    radial-gradient(circle at 0% 10%, rgba(56, 189, 248, 0.50), transparent 55%),
+    radial-gradient(circle at 100% 90%, rgba(129, 140, 248, 0.65), transparent 55%),
+    url("/images/devspark-bg.svg");
+  background-size: 160% 160%, 160% 160%, cover;
+  background-position: 0% 0%, 100% 100%, center;
+  mix-blend-mode: screen;
+  animation: devspark-orbit-dark 26s ease-in-out infinite alternate;
+  filter: saturate(1.25) brightness(1.05);
+}
 
-  body::before {
-    background-image: 
-      radial-gradient(circle at 25px 25px, rgba(255, 255, 255, 0.05) 2%, transparent 0%), 
-      radial-gradient(circle at 75px 75px, rgba(255, 255, 255, 0.05) 2%, transparent 0%);
-  }
+html.dark .bg-gradient-overlay::after {
+  background: radial-gradient(
+    circle at 75% 40%,
+    rgba(59, 130, 246, 0.35) 0%,
+    rgba(15, 23, 42, 0) 60%
+  );
+}
 
-  .bg-gradient-overlay::after {
-    background: radial-gradient(
-      circle at 75% 50%,
-      rgba(59, 130, 246, 0.1) 0%,
-      rgba(2, 6, 23, 0) 50%
-    );
+/* Keyframes for cinematic background motion */
+@keyframes devspark-orbit {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    background-position: 0% 0%, 100% 100%, center;
+  }
+  50% {
+    transform: translate3d(-1%, 1%, 0) scale(1.02);
+    background-position: 10% 10%, 90% 90%, center;
+  }
+  100% {
+    transform: translate3d(1%, -1%, 0) scale(1.04);
+    background-position: 20% 0%, 80% 100%, center;
+  }
+}
+
+@keyframes devspark-orbit-dark {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    background-position: 0% 0%, 100% 100%, center;
+  }
+  50% {
+    transform: translate3d(-2%, 2%, 0) scale(1.03);
+    background-position: 15% 15%, 85% 85%, center;
+  }
+  100% {
+    transform: translate3d(2%, -2%, 0) scale(1.06);
+    background-position: 30% 0%, 70% 100%, center;
   }
 }

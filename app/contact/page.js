@@ -1,19 +1,29 @@
 export default function Contact() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl mb-4">Get in Touch</h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Have a project in mind? Let's discuss how we can help bring your digital ideas to life.
+    <div className="relative min-h-screen pt-28 pb-24 px-4 sm:px-6 lg:px-8">
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-white/75 via-white/30 to-transparent dark:from-slate-950/80 dark:via-slate-950/40 dark:to-transparent" />
+
+      <div className="mx-auto max-w-4xl">
+        <div className="mb-12 text-center">
+          <h1 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl md:text-5xl dark:text-white">
+            Start your next IT project with us
+          </h1>
+          <p className="mt-4 text-base text-slate-600 sm:text-lg dark:text-slate-300 max-w-2xl mx-auto">
+            Share a bit about your product, roadmap, or infrastructure. Our team will respond within
+            one business day with next steps and availability.
           </p>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+        <div className="overflow-hidden rounded-3xl bg-white/85 shadow-xl shadow-slate-900/10 ring-1 ring-slate-200/70 backdrop-blur dark:bg-slate-900/85 dark:ring-slate-700/70">
           <div className="md:flex">
-            <div className="p-8 md:p-12 md:w-1/2 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
-              <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
-              <div className="space-y-6">
+            <div className="p-8 md:p-10 md:w-1/2 bg-gradient-to-br from-blue-600 via-indigo-600 to-fuchsia-500 text-white relative overflow-hidden">
+              <div className="pointer-events-none absolute -right-16 top-0 h-40 w-40 rounded-full bg-white/15 blur-3xl" />
+              <h2 className="text-2xl font-semibold mb-4">Contact information</h2>
+              <p className="mb-6 text-sm text-blue-100 max-w-sm">
+                Prefer email or a quick call? Reach out directly and we&apos;ll line up a short discovery
+                session with our team.
+              </p>
+              <div className="space-y-6 text-sm">
                 <div className="flex items-start">
                   <div className="flex-shrink-0 bg-blue-500 p-2 rounded-lg">
                     <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -21,8 +31,10 @@ export default function Contact() {
                     </svg>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-sm font-medium">Email</h3>
-                    <p className="mt-1 text-blue-100">hello@devspark.com</p>
+                    <h3 className="text-xs font-semibold uppercase tracking-wide text-blue-100/80">
+                      Email
+                    </h3>
+                    <p className="mt-1 text-sm text-blue-50">hello@devspark.com</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -32,8 +44,10 @@ export default function Contact() {
                     </svg>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-sm font-medium">Phone</h3>
-                    <p className="mt-1 text-blue-100">+1 (555) 123-4567</p>
+                    <h3 className="text-xs font-semibold uppercase tracking-wide text-blue-100/80">
+                      Phone
+                    </h3>
+                    <p className="mt-1 text-sm text-blue-50">+1 (555) 123-4567</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -44,52 +58,109 @@ export default function Contact() {
                     </svg>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-sm font-medium">Location</h3>
-                    <p className="mt-1 text-blue-100">123 Tech Street, Silicon Valley, CA 94025</p>
+                    <h3 className="text-xs font-semibold uppercase tracking-wide text-blue-100/80">
+                      Location
+                    </h3>
+                    <p className="mt-1 text-sm text-blue-50">
+                      123 Tech Street, Silicon Valley, CA 94025
+                    </p>
                   </div>
+                </div>
+                <div className="pt-4 border-t border-blue-400/30 mt-6">
+                  <p className="text-[11px] uppercase tracking-[0.16em] text-blue-100/80 mb-2">
+                    Typical response time
+                  </p>
+                  <p className="text-sm text-blue-50">Under 24 hours on business days.</p>
                 </div>
               </div>
             </div>
 
-            <div className="p-8 md:p-12 md:w-1/2">
-              <form className="space-y-6">
+            <div className="p-8 md:p-10 md:w-1/2 bg-white/80 dark:bg-slate-950/80">
+              <form className="space-y-5">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+                  <label
+                    htmlFor="name"
+                    className="block text-xs font-semibold uppercase tracking-wide text-slate-700 dark:text-slate-300"
+                  >
+                    Name
+                  </label>
                   <input
                     type="text"
                     id="name"
                     name="name"
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                    className="mt-1 block w-full rounded-xl border border-slate-200/80 bg-white/80 px-3 py-2.5 text-sm text-slate-900 shadow-sm outline-none ring-0 placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 dark:border-slate-700/80 dark:bg-slate-900/80 dark:text-slate-100 dark:placeholder:text-slate-500"
                     placeholder="Your name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+                  <label
+                    htmlFor="email"
+                    className="block text-xs font-semibold uppercase tracking-wide text-slate-700 dark:text-slate-300"
+                  >
+                    Work email
+                  </label>
                   <input
                     type="email"
                     id="email"
                     name="email"
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                    placeholder="you@example.com"
+                    className="mt-1 block w-full rounded-xl border border-slate-200/80 bg-white/80 px-3 py-2.5 text-sm text-slate-900 shadow-sm outline-none ring-0 placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 dark:border-slate-700/80 dark:bg-slate-900/80 dark:text-slate-100 dark:placeholder:text-slate-500"
+                    placeholder="you@company.com"
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
+                  <label
+                    htmlFor="message"
+                    className="block text-xs font-semibold uppercase tracking-wide text-slate-700 dark:text-slate-300"
+                  >
+                    Project details
+                  </label>
                   <textarea
                     id="message"
                     name="message"
                     rows={4}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                    placeholder="Tell us about your project..."
+                    className="mt-1 block w-full rounded-xl border border-slate-200/80 bg-white/80 px-3 py-2.5 text-sm text-slate-900 shadow-sm outline-none ring-0 placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 dark:border-slate-700/80 dark:bg-slate-900/80 dark:text-slate-100 dark:placeholder:text-slate-500"
+                    placeholder="Tell us about your product, goals, timeline, and tech stack..."
                     defaultValue={''}
                   />
+                </div>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div>
+                    <label
+                      htmlFor="company"
+                      className="block text-xs font-semibold uppercase tracking-wide text-slate-700 dark:text-slate-300"
+                    >
+                      Company
+                    </label>
+                    <input
+                      type="text"
+                      id="company"
+                      name="company"
+                      className="mt-1 block w-full rounded-xl border border-slate-200/80 bg-white/80 px-3 py-2.5 text-sm text-slate-900 shadow-sm outline-none ring-0 placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 dark:border-slate-700/80 dark:bg-slate-900/80 dark:text-slate-100 dark:placeholder:text-slate-500"
+                      placeholder="Company name (optional)"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="budget"
+                      className="block text-xs font-semibold uppercase tracking-wide text-slate-700 dark:text-slate-300"
+                    >
+                      Approx. budget
+                    </label>
+                    <input
+                      type="text"
+                      id="budget"
+                      name="budget"
+                      className="mt-1 block w-full rounded-xl border border-slate-200/80 bg-white/80 px-3 py-2.5 text-sm text-slate-900 shadow-sm outline-none ring-0 placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 dark:border-slate-700/80 dark:bg-slate-900/80 dark:text-slate-100 dark:placeholder:text-slate-500"
+                      placeholder="$10k – $50k, $50k+..."
+                    />
+                  </div>
                 </div>
                 <div>
                   <button
                     type="submit"
-                    className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
+                    className="w-full flex justify-center py-3 px-4 border border-transparent rounded-full shadow-md text-sm font-semibold text-white bg-gradient-to-r from-blue-600 via-indigo-500 to-fuchsia-500 hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 focus:ring-offset-slate-900 transition-colors duration-200"
                   >
-                    Send Message
+                    Request a discovery call
                   </button>
                 </div>
               </form>
