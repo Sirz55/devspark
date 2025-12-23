@@ -1,0 +1,44 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="50%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0B1224"/>
+    </linearGradient>
+    <radialGradient id="orb1" cx="0.2" cy="0.2" r="0.6">
+      <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#60A5FA" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orb2" cx="0.8" cy="0.3" r="0.7">
+      <stop offset="0%" stop-color="#A855F7" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#A855F7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orb3" cx="0.6" cy="0.75" r="0.65">
+      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bgGradient)"/>
+  <rect width="1600" height="900" fill="url(#orb1)"/>
+  <rect width="1600" height="900" fill="url(#orb2)"/>
+  <rect width="1600" height="900" fill="url(#orb3)"/>
+
+  <g opacity="0.4">
+    <path d="M100 180C220 90 420 90 540 180C660 270 860 270 980 180C1100 90 1300 90 1420 180" stroke="#334155" stroke-width="2" stroke-linecap="round" />
+    <path d="M120 260C260 170 440 170 580 260C720 350 900 350 1040 260C1180 170 1360 170 1500 260" stroke="#1E293B" stroke-width="2" stroke-linecap="round" />
+    <path d="M140 340C300 250 460 250 620 340C780 430 940 430 1100 340C1260 250 1420 250 1580 340" stroke="#1D4ED8" stroke-width="2" stroke-linecap="round" opacity="0.6" />
+  </g>
+
+  <g opacity="0.12">
+    <circle cx="250" cy="120" r="90" fill="#3B82F6"/>
+    <circle cx="1350" cy="220" r="120" fill="#A855F7"/>
+    <circle cx="900" cy="650" r="180" fill="#22D3EE"/>
+  </g>
+
+  <g opacity="0.35" stroke="#0EA5E9" stroke-width="1" stroke-linecap="round">
+    <path d="M150 720 C 400 680, 600 780, 850 720 S 1250 600, 1450 660" />
+    <path d="M170 760 C 420 740, 640 820, 900 760 S 1300 640, 1470 700" opacity="0.6" />
+  </g>
+</svg>
+

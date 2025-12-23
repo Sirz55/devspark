@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background-rgb: 255, 255, 255;
+  --foreground-rgb: 15, 23, 42; /* slate-900 */
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, background-image 0.3s ease;
+  background-color: #0b1224;
+  /* Single, topic-aligned background applied globally */
+  background-image:
+    linear-gradient(180deg, rgba(248, 250, 252, 0.94), rgba(241, 245, 249, 0.92)),
+    url("/images/devspark-bg.svg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Subtle dot pattern */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 25px 25px, rgba(0, 0, 0, 0.03) 2%, transparent 0%), 
+    radial-gradient(circle at 75px 75px, rgba(0, 0, 0, 0.03) 2%, transparent 0%);
+  background-size: 100px 100px;
+  opacity: 0.4;
+  z-index: -1;
+}
+
+/* Gradient overlay helper */
+.bg-gradient-overlay {
+  position: relative;
+}
+
+.bg-gradient-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 75% 50%,
+    rgba(59, 130, 246, 0.08) 0%,
+    rgba(255, 255, 255, 0) 50%
+  );
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Card hover effect */
+.hover-card {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.hover-card:hover {
+  @apply shadow-lg -translate-y-1;
+}
+
+/* 🌙 DARK MODE */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-rgb: 2, 6, 23; /* slate-950 */
+    --foreground-rgb: 241, 245, 249; /* slate-100 */
+  }
+
+  body {
+    background-color: #020617;
+    background-image:
+      linear-gradient(180deg, rgba(2, 6, 23, 0.94), rgba(15, 23, 42, 0.94)),
+      url("/images/devspark-bg.svg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  body::before {
+    background-image: 
+      radial-gradient(circle at 25px 25px, rgba(255, 255, 255, 0.05) 2%, transparent 0%), 
+      radial-gradient(circle at 75px 75px, rgba(255, 255, 255, 0.05) 2%, transparent 0%);
+  }
+
+  .bg-gradient-overlay::after {
+    background: radial-gradient(
+      circle at 75% 50%,
+      rgba(59, 130, 246, 0.1) 0%,
+      rgba(2, 6, 23, 0) 50%
+    );
+  }
+}
